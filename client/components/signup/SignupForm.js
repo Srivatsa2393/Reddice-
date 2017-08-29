@@ -43,7 +43,9 @@ class SignupForm extends Component {
       //console.log(this.state);
       //axios.post('/api/users', { user: this.state });
       this.props.userSignupRequest(this.state).then(
-        () => {},
+        () => {
+          this.context.router.push('/');
+        },
         err => {
           this.setState({ errors: err.response.data, isLoading: false });
         }
@@ -132,6 +134,10 @@ class SignupForm extends Component {
 
 SignupForm.propTypes = {
   userSignupRequest: React.PropTypes.func.isRequired
+};
+
+SignupForm.contextTypes = {
+  router: React.PropTypes.object.isRequired
 };
 
 export default SignupForm;
