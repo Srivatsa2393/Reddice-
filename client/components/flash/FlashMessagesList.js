@@ -5,12 +5,12 @@ import { deleteFlashMessage } from '../../actions/flashMessages';
 
 class FlashMessagesList extends Component {
   render() {
-    const { deleteFlashMessage } = this.props;
+    // const { deleteFlashMessage } = this.props;
     const messages = this.props.messages.map(message =>
       <FlashMessage
         key={message.id}
         message={message}
-        deleteFlashMessage={deleteFlashMessage}
+        deleteFlashMessage={this.props.deleteFlashMessage}
       />
     );
     return (
